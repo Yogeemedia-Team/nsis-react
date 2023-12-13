@@ -12,25 +12,19 @@ export default function Profile() {
   };
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <div>
-        <button onClick={handleLogout}>Logout</button>
+    <div className="container mt-5">
+      <div className="card">
+        <div className="card-body">
+          <h1 className="text-center mb-4">Profile</h1>
+          <div className="text-center mb-4">
+            {/* Add profile information or avatar here if needed */}
+            <p>Welcome</p>
+          </div>
+          <div className="d-grid">
+            <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+          </div>
+        </div>
       </div>
-      {user && (
-        <div>
-          <img src={user.avatar} alt="User Avatar" />
-        </div>
-      )}
-      {user && (
-        <div>
-          <h5>
-            Welcome {user.fname} {user.lname}
-          </h5>
-          <p>Email: {user.email}</p>
-          {/* Add more details based on your user data structure */}
-        </div>
-      )}
     </div>
   );
 }

@@ -33,25 +33,43 @@ export default function Signin() {
   };
 
   return (
-    <div>
-      <h1>Sign in</h1>
-      <form noValidate onSubmit={handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Sign In</button>
-      </form>
+    <div className="container-fluid sign_sec">
+      <div className="card">
+        <div className="card-body">
+          <div className="row">
+              <h1 className="text-center mb-4">Sign In</h1>
+              <form noValidate onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email Address
+                  </label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    className="form-control"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="form-control"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Sign In
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
