@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 // reactstrap components
 import {
@@ -19,8 +19,8 @@ import {
 } from "reactstrap";
 
 // core components
-import SimpleFooter from "components/Footers/SimpleFooter.js";
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
+import MainFooter from "components/Footers/MainFooter.js";
+import MainNavbar from "components/Navbars/MainNavbar.js";
 
 async function loginUser(credentials) {
   return fetch("https://developer.yogeemedia.cloud/api/login", {
@@ -45,30 +45,29 @@ export default function Signin() {
 
     if (response.status && response.data && response.data.access_token) {
       Swal.fire({
-        title: 'Success',
+        title: "Success",
         text: response.message,
-        icon: 'success',
-        confirmButtonText: 'OK',
+        icon: "success",
+        confirmButtonText: "OK",
       }).then(() => {
-        localStorage.setItem('accessToken', response.data.access_token);
+        localStorage.setItem("accessToken", response.data.access_token);
         // Assuming user data is available in the response, you can store it in localStorage as well
-        localStorage.setItem('user', JSON.stringify(response.data));
-        window.location.href = '/profile-page';
+        localStorage.setItem("user", JSON.stringify(response.data));
+        window.location.href = "/profile-page";
       });
     } else {
       Swal.fire({
-        title: 'Failed',
+        title: "Failed",
         text: response.message,
-        icon: 'error',
-        confirmButtonText: 'OK',
+        icon: "error",
+        confirmButtonText: "OK",
       });
     }
-    
   };
 
   return (
     <>
-      <DemoNavbar />
+      <MainNavbar />
       <section className="section section-shaped section-lg">
         <div className="shape shape-style-1 bg-gradient-default">
           <span />
@@ -166,7 +165,7 @@ export default function Signin() {
           </Row>
         </Container>
       </section>
-      <SimpleFooter />
+      <MainFooter />
     </>
   );
 }

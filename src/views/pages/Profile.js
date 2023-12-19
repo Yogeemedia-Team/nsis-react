@@ -2,8 +2,8 @@ import React from "react";
 // reactstrap components
 import { Button, Card, Col, Container, Row } from "reactstrap";
 // core components
-import SimpleFooter from "components/Footers/SimpleFooter.js";
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
+import MainFooter from "components/Footers/MainFooter.js";
+import MainNavbar from "components/Navbars/MainNavbar.js";
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class Profile extends React.Component {
     }
     return (
       <>
-        <DemoNavbar />
+        <MainNavbar />
         <main className="profile-page" ref="main">
           <section className="section-profile-cover section-shaped my-0">
             {/* Circles background */}
@@ -150,7 +150,7 @@ class Profile extends React.Component {
             </Container>
           </section>
         </main>
-        <SimpleFooter />
+        <MainFooter />
       </>
     );
   }
