@@ -26,19 +26,19 @@ import {
   Card,
   CardBody,
   CardImg,
+  Col,
+  Container,
   FormGroup,
   Input,
+  InputGroup,
   InputGroupAddon,
   InputGroupText,
-  InputGroup,
-  Container,
   Row,
-  Col,
 } from "reactstrap";
 
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import CardsFooter from "components/Footers/CardsFooter.js";
+import MainNavbar from "components/Navbars/MainNavbar.js";
 
 // index page sections
 import Download from "../IndexSections/Download.js";
@@ -53,7 +53,7 @@ class Landing extends React.Component {
   render() {
     return (
       <>
-        <DemoNavbar />
+        <MainNavbar />
         <main ref="main">
           <div className="position-relative">
             {/* shape Hero */}

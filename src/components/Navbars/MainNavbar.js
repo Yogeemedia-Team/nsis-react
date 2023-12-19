@@ -39,7 +39,7 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-class DemoNavbar extends React.Component {
+class MainNavbar extends React.Component {
   componentDidMount() {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     // initialise
@@ -268,7 +268,6 @@ class DemoNavbar extends React.Component {
                     </UncontrolledTooltip>
                   </NavItem>
                   <NavItem className="d-none d-lg-block ml-lg-4">
-                    
                     {accessToken ? (
                       // If access token exists, show Logout button
                       <Button color="danger" onClick={logout}>
@@ -301,4 +300,4 @@ class DemoNavbar extends React.Component {
   }
 }
 
-export default DemoNavbar;
+export default MainNavbar;

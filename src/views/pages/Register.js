@@ -21,22 +21,22 @@ import React from "react";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
-  FormGroup,
+  CardHeader,
+  Col,
+  Container,
   Form,
+  FormGroup,
   Input,
+  InputGroup,
   InputGroupAddon,
   InputGroupText,
-  InputGroup,
-  Container,
   Row,
-  Col,
 } from "reactstrap";
 
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import SimpleFooter from "components/Footers/SimpleFooter.js";
+import MainFooter from "components/Footers/MainFooter.js";
+import MainNavbar from "components/Navbars/MainNavbar.js";
 
 class Register extends React.Component {
   componentDidMount() {
@@ -47,7 +47,7 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <DemoNavbar />
+        <MainNavbar />
         <main ref="main">
           <section className="section section-shaped section-lg">
             <div className="shape shape-style-1 bg-gradient-default">
@@ -194,7 +194,7 @@ class Register extends React.Component {
             </Container>
           </section>
         </main>
-        <SimpleFooter />
+        <MainFooter />
       </>
     );
   }

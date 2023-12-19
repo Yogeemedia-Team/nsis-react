@@ -125,9 +125,9 @@ Argon Design System React
     ├── components
     │   ├── Footers
     │   │   ├── CardsFooter.js
-    │   │   └── SimpleFooter.js
+    │   │   └── MainFooter.js
     │   └── Navbars
-    │       └── DemoNavbar.js
+    │       └── MainNavbar.js
     ├── index.js
     └── views
         ├── Index.js
