@@ -22,20 +22,20 @@ import Headroom from "headroom.js";
 // reactstrap components
 import {
   Button,
-  UncontrolledCollapse,
-  DropdownMenu,
+  Col,
+  Container,
   DropdownItem,
+  DropdownMenu,
   DropdownToggle,
-  UncontrolledDropdown,
   Media,
-  NavbarBrand,
-  Navbar,
+  Nav,
   NavItem,
   NavLink,
-  Nav,
-  Container,
+  Navbar,
+  NavbarBrand,
   Row,
-  Col,
+  UncontrolledCollapse,
+  UncontrolledDropdown,
   UncontrolledTooltip,
 } from "reactstrap";
 
@@ -63,6 +63,19 @@ class DemoNavbar extends React.Component {
   };
 
   render() {
+    // Retrieve the access token from local storage
+    const accessToken = localStorage.getItem("accessToken");
+
+    // Add this function in your component or utility file
+    const logout = () => {
+      // Clear access token and user data from local storage
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+
+      // Redirect to the login page
+      window.location.href = "/login-page";
+    };
+
     return (
       <>
         <header className="header-global">
@@ -183,9 +196,6 @@ class DemoNavbar extends React.Component {
                       <DropdownItem to="/profile-page" tag={Link}>
                         Profile
                       </DropdownItem>
-                      <DropdownItem to="/login-page" tag={Link}>
-                        Login
-                      </DropdownItem>
                       <DropdownItem to="/register-page" tag={Link}>
                         Register
                       </DropdownItem>
@@ -258,19 +268,28 @@ class DemoNavbar extends React.Component {
                     </UncontrolledTooltip>
                   </NavItem>
                   <NavItem className="d-none d-lg-block ml-lg-4">
-                    <Button
-                      className="btn-neutral btn-icon"
-                      color="default"
-                      href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar"
-                      target="_blank"
-                    >
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-cloud-download mr-2" />
-                      </span>
-                      <span className="nav-link-inner--text ml-1">
-                        Download
-                      </span>
-                    </Button>
+                    
+                    {accessToken ? (
+                      // If access token exists, show Logout button
+                      <Button color="danger" onClick={logout}>
+                        <span className="btn-inner--icon">
+                          <i className="fa fa-sign-out mr-2" />
+                        </span>
+                        <span className="nav-link-inner--text ml-1">
+                          Sign Out
+                        </span>
+                      </Button>
+                    ) : (
+                      // If no access token, show login link or button
+                      <Button href="/login-page" color="primary">
+                        <span className="btn-inner--icon">
+                          <i className="fa fa-sign-in mr-2" />
+                        </span>
+                        <span className="nav-link-inner--text ml-1">
+                          Sign In
+                        </span>
+                      </Button>
+                    )}
                   </NavItem>
                 </Nav>
               </UncontrolledCollapse>

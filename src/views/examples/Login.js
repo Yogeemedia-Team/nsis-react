@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from 'sweetalert2';
 
 // reactstrap components
 import {
@@ -43,14 +44,26 @@ export default function Signin() {
     });
 
     if (response.status && response.data && response.data.access_token) {
-      alert("Success: " + response.message); // Use alert or console.log for simplicity
-      localStorage.setItem("accessToken", response.data.access_token);
-      // Assuming user data is available in the response, you can store it in localStorage as well
-      localStorage.setItem("user", JSON.stringify(response.data));
-      window.location.href = "/profile-page";
+      Swal.fire({
+        title: 'Success',
+        text: response.message,
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        localStorage.setItem('accessToken', response.data.access_token);
+        // Assuming user data is available in the response, you can store it in localStorage as well
+        localStorage.setItem('user', JSON.stringify(response.data));
+        window.location.href = '/profile-page';
+      });
     } else {
-      alert("Failed: " + response.message); // Use alert or console.log for simplicity
+      Swal.fire({
+        title: 'Failed',
+        text: response.message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
+    
   };
 
   return (
